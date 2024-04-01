@@ -1,0 +1,35 @@
+1/1/2010/Puce/Mercedes-Benz/SLK-Class/97
+2/1/2006/Green/Chevrolet/Silverado 3500HD/83
+3/1/2012/Crimson/Suzuki/Equator/162
+4/1/1998/Green/Chrysler/Cirrus/216
+5/1/1984/Pink/Buick/Skyhawk/244
+6/1/2004/Red/Cadillac/Escalade ESV/225
+7/1/2009/Blue/Cadillac/Escalade EXT/123
+8/1/2010/Purple/Buick/LaCrosse/169
+9/1/2007/Maroon/Chrysler/Town & Country/246
+10/1/2004/Indigo/Jaguar/S-Type/148
+11/1/2002/Teal/Nissan/Sentra/152
+12/1/2010/Indigo/Kia/Optima/108
+13/1/2006/Khaki/Volvo/V50/121
+14/1/1989/Khaki/Ford/F-Series/138
+15/1/1998/Pink/Lincoln/Continental/249
+16/1/2004/Red/BMW/525/147
+17/1/1998/Green/Oldsmobile/Aurora/197
+18/1/2003/Fuscia/Lexus/GX/123
+19/1/2010/Mauv/Lamborghini/Murciélago/249
+20/1/2004/Purple/Mitsubishi/Lancer Evolution/85
+21/2/1996/Khaki/Eagle/Talon/10000/4.64
+22/2/1994/Aquamarine/Volvo/940/10000/8.89
+23/2/1993/Pink/Isuzu/Stylus/10000/9.8
+24/2/2011/Pink/Toyota/Prius/10000/9.97
+25/2/2010/Green/Jeep/Wrangler/10000/3.42
+26/2/1993/Green/GMC/Yukon/10000/4.35
+27/2/1996/Crimson/Isuzu/Trooper/10000/9.21
+28/2/1993/Fuscia/Mercedes-Benz/300CE/10000/3.43
+29/2/1971/Blue/Pontiac/GTO/10000/8.52
+30/2/1995/Red/Lexus/LS/10/6.26
+31/3/1993/Green/GMC/Yukon/10/4.35
+32/3/1996/Crimson/Isuzu/Trooper/10/9.21
+33/3/1993/Fuscia/Mercedes-Benz/300CE/100/3.43
+34/3/1971/Blue/Pontiac/GTO/100/8.52
+35/231995/Red/Lexus/LS/10/6.26
