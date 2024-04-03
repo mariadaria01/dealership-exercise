@@ -8,7 +8,7 @@ namespace dealership.Vehicles.Services;
 public class VehicleServiceJson : IVehicleService
 {
     private List<Vehicle> _vehicles;
-    private int _lastId;
+    private int _newId;
 
     public VehicleServiceJson()
     {
@@ -55,8 +55,8 @@ public class VehicleServiceJson : IVehicleService
     
     public void AddVehicle(Vehicle vehicle)
     {
-        _lastId++;
-        vehicle.Id = _lastId;
+        vehicle.Id = _newId;
+        _newId++;
         
         _vehicles.Add(vehicle);
         SaveAll();
@@ -94,5 +94,6 @@ public class VehicleServiceJson : IVehicleService
     {
         string jsonString = File.ReadAllText("../../../Resources/vehicles.json");
         _vehicles = JsonConvert.DeserializeObject<List<Vehicle>>(jsonString, new VehicleConverter())!;
+        _newId = _vehicles.Count > 0 ? _vehicles.Last().Id + 1 : 1;
     }
 }
