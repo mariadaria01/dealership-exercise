@@ -27,9 +27,15 @@ public class Airplane : Vehicle
     {
         string description = base.ToString();
 
-        description += $"Type: {MotorType}\n";
+        description += $"MotorType: {MotorType}\n";
         description += $"Wingspan: {Wingspan}m\n";
 
         return description;
+    }
+
+    public override string GetSaveText()
+    {
+        string text = base.GetSaveText();
+        return text + $"/{MotorType}/{Wingspan}";
     }
 }

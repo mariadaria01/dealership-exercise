@@ -27,4 +27,10 @@ public class Car : Vehicle
 
         return description;
     }
+
+    public override string GetSaveText()
+    {
+        string text = base.GetSaveText();
+        return text + $"/{Horsepower}";
+    }
 }

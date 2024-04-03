@@ -1,27 +1,25 @@
-﻿using dealership.Vehicles.Models;
+﻿using dealership.Vehicles.Converters;
+using dealership.Vehicles.Models;
 using dealership.Vehicles.Services.Interfaces;
+using Newtonsoft.Json;
 
 namespace dealership.Vehicles.Services;
 
-public class VehicleService : IVehicleService
+public class VehicleServiceJson : IVehicleService
 {
-    private static List<Vehicle> _vehicles;
+    private List<Vehicle> _vehicles;
+    private int _lastId;
 
-    public VehicleService()
+    public VehicleServiceJson()
     {
         LoadFromFile();
     }
-    
-    public VehicleService(List<Vehicle> vehicles)
-    {
-        _vehicles = vehicles;
-    }
 
-    public List<Vehicle> GetAllVehicles()
+    public List<Vehicle?> GetAllVehicles()
     {
         return _vehicles;
     }
-
+    
     public List<Vehicle> GetByYear(int year)
     {
         List<Vehicle> vehicles = new List<Vehicle>();
@@ -45,7 +43,6 @@ public class VehicleService : IVehicleService
 
         return vehicles;
     }
-    
     public Vehicle? GetVehicleById(int id)
     {
         foreach (Vehicle? vehicle in _vehicles)
@@ -58,7 +55,8 @@ public class VehicleService : IVehicleService
     
     public void AddVehicle(Vehicle vehicle)
     {
-        vehicle.Id = NewId();
+        _lastId++;
+        vehicle.Id = _lastId;
         
         _vehicles.Add(vehicle);
         SaveAll();
@@ -83,60 +81,18 @@ public class VehicleService : IVehicleService
         _vehicles.Remove(vehicle);
         SaveAll();
     }
-
     
     // PRIVATE METHODS
 
     private void SaveAll()
     {
-        string text = "";
-        foreach (Vehicle vehicle in _vehicles)
-        {
-            text += vehicle.GetSaveText() + "\n";
-        }
-        
-        StreamWriter sw = new StreamWriter("../../../Resources/vehicles.txt");
-        sw.Write(text);
-        sw.Close();
+        string jsonString = JsonConvert.SerializeObject(_vehicles, Formatting.Indented);
+        File.WriteAllText("../../../Resources/vehicles.json", jsonString);
     }
     
     private void LoadFromFile()
     {
-        _vehicles = new List<Vehicle>();
-
-        StreamReader sr = new StreamReader("../../../Resources/vehicles.txt");
-
-        while (!sr.EndOfStream)
-        {
-            string text = sr.ReadLine()!;
-
-            switch (int.Parse(text.Split('/')[1]))
-            {
-                case 1:
-                    _vehicles.Add(new Car(text));
-                    break;
-                case 2:
-                    _vehicles.Add(new Airplane(text));
-                    break;
-                case 3:
-                    _vehicles.Add(new Boat(text));
-                    break;
-            }
-        }
-        
-        sr.Close();
-    }
-    
-    private int NewId()
-    {
-        Random random = new Random();
-        int id = random.Next(1, 10000);
-
-        while (GetVehicleById(id) != null)
-        {
-            id = random.Next(1, 10000);
-        }
-
-        return id;
+        string jsonString = File.ReadAllText("../../../Resources/vehicles.json");
+        _vehicles = JsonConvert.DeserializeObject<List<Vehicle>>(jsonString, new VehicleConverter())!;
     }
 }

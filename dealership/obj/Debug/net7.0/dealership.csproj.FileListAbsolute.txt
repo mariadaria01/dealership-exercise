@@ -12,3 +12,6 @@ D:\mycode\csharp\projects\dealership\dealership\obj\Debug\net7.0\refint\dealersh
 D:\mycode\csharp\projects\dealership\dealership\obj\Debug\net7.0\dealership.pdb
 D:\mycode\csharp\projects\dealership\dealership\obj\Debug\net7.0\dealership.genruntimeconfig.cache
 D:\mycode\csharp\projects\dealership\dealership\obj\Debug\net7.0\ref\dealership.dll
+D:\mycode\csharp\projects\dealership\dealership\bin\Debug\net7.0\Newtonsoft.Json.dll
+D:\mycode\csharp\projects\dealership\dealership\obj\Debug\net7.0\dealership.csproj.AssemblyReference.cache
+D:\mycode\csharp\projects\dealership\dealership\obj\Debug\net7.0\dealership.csproj.CopyComplete

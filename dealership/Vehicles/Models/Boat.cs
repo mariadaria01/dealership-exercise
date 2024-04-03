@@ -2,11 +2,11 @@
 
 public class Boat: Vehicle
 {
-    public string EngineBlades { get; set; }
-    public string MaximumWeightAccepted { get; set; }
+    public int EngineBlades { get; set; }
+    public double MaximumWeightAccepted { get; set; }
 
     public Boat(int id, VehicleType type, int year, string color,
-        string make, string model, string engineBlades,string maximumWeightAccepted) :
+        string make, string model, int engineBlades,double maximumWeightAccepted) :
         base(id, type, year, color, make, model)
     {
         EngineBlades = engineBlades;
@@ -18,8 +18,8 @@ public class Boat: Vehicle
         string[] values = text.Split('/');
 
         Type = VehicleType.Boat;
-        EngineBlades = (values[6]);
-        MaximumWeightAccepted = values[7];
+        EngineBlades = int.Parse(values[6]);
+        MaximumWeightAccepted = double.Parse(values[7]);
     }
 
     public override string ToString()
@@ -32,6 +32,11 @@ public class Boat: Vehicle
         return description;
     }
     
+    public override string GetSaveText()
+    {
+        string text = base.GetSaveText();
+        return text + $"/{EngineBlades}/{MaximumWeightAccepted}";
+    }
 
 }
 

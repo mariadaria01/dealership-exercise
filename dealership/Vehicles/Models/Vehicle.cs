@@ -43,4 +43,9 @@ public class Vehicle
 
         return description;
     }
+
+    public virtual string GetSaveText()
+    {
+        return $"{Id}/{(int)Type}/{Year}/{Color}/{Make}/{Model}";
+    }
 }
